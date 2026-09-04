@@ -1,0 +1,113 @@
+name: Report Mobile Crash
+description: Report a GTNH Mobile crash, unexpected exit, or failure to start.
+labels:
+  - "Status: Triage"
+  - "Mobile"
+  - "Crash"
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please read the [GTNH Mobile README](https://github.com/GTNewHorizons/Mobile-Issues-Tracker/blob/master/README.md), including supported configurations and required mobile settings, before submitting.
+
+        Use this form if GTNH Mobile closes unexpectedly or fails to start. For problems that do not end your session, use **Report Mobile Bug**. If the same problem occurs on desktop, report it in the [main GTNH issue tracker](https://github.com/GTNewHorizons/GT-New-Horizons-Modpack/issues) instead.
+
+  - type: input
+    id: discord
+    attributes:
+      label: Your GTNH Discord Username
+      description: "Leave empty if you don't have one, but this makes it easier to contact you if clarification is needed."
+      placeholder: "Example: Fake"
+
+  - type: input
+    id: version
+    attributes:
+      label: Your Pack Version
+      description: "Enter the exact GTNH version shown on the main menu, including any beta or dev suffix. If the game cannot start, use the version in the archive filename. Neither \"latest\" nor \"1.7.10\" is a valid pack version."
+      placeholder: "Example: 2.9.0-beta-2"
+    validations:
+      required: true
+
+  - type: input
+    id: launcher
+    attributes:
+      label: Amethyst Launcher Version
+      description: "Enter the exact version of the Amethyst launcher you downloaded. Do not enter \"latest\"."
+    validations:
+      required: true
+
+  - type: input
+    id: device
+    attributes:
+      label: Device Model and Android Version
+      description: "Include your phone or tablet model and the Android version it is running."
+      placeholder: "Example: Google Pixel 8, Android 14"
+    validations:
+      required: true
+
+  - type: input
+    id: memory
+    attributes:
+      label: Allocated Memory
+      description: "Enter the memory allocated to the game in Amethyst, including units. This is not your device's total RAM."
+      placeholder: "Example: 4 GB"
+    validations:
+      required: true
+
+  - type: input
+    id: server
+    attributes:
+      label: Your Server or Play Mode
+      description: "Enter SP for single-player, Open to LAN, or the server name and type if known. Do not include private server addresses. If the game never reaches the menu, enter \"Before main menu\"."
+      placeholder: "Example: SP, private Forge server"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: stage
+    attributes:
+      label: When Does It Crash?
+      options:
+        - Before the main menu
+        - Loading or creating a single-player world
+        - Joining a server
+        - During gameplay
+        - Saving or leaving a world or server
+        - Other / not sure
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Your Actions
+      description: "What did you try to do before the crash? Attach screenshots if helpful."
+    validations:
+      required: true
+
+  - type: textarea
+    id: report
+    attributes:
+      label: Logs / Crash Report
+      description: "Attach the crash report from `crash-reports/` if generated and `logs/fml-client-latest.log` from the affected instance. Include the Amethyst launcher log if the game fails to start. If no report or log is generated, say so and explain what you checked. Remove passwords, tokens, or other private information before uploading."
+      placeholder: "Drag and drop files here, or paste links to uploaded logs."
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: final
+    attributes:
+      label: Final Checklist
+      description: Please confirm the following so we can better handle this report.
+      options:
+        - label: "I have read the GTNH Mobile README and am using a supported configuration, with the required mobile-specific settings intact."
+          required: true
+        - label: "I can only reproduce this problem on the mobile version of GTNH."
+          required: true
+        - label: "I have searched this tracker and the main GTNH issue tracker, including closed issues, and found no similar report."
+          required: true
+        - label: "I can reproduce this problem consistently by following the steps described above."
+          required: false
+        - label: "Other players have confirmed the same problem on a supported mobile configuration."
+          required: false

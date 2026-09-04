@@ -1,0 +1,83 @@
+name: Suggest a Mobile Change
+description: Suggest a mobile-specific improvement or new feature for GTNH Mobile.
+labels:
+  - "Status: Triage"
+  - "Mobile"
+  - "Suggestion"
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please read the [GTNH Mobile README](https://github.com/GTNewHorizons/Mobile-Issues-Tracker/blob/master/README.md), including supported configurations and required mobile settings, before submitting.
+
+        Use this form for mobile-specific improvements, such as touch-friendly interfaces, readability on small screens, or mobile setup guidance. For broken behavior, use **Report Mobile Bug** or **Report Mobile Crash**. General gameplay, balance, recipe, or quest suggestions belong in the [main GTNH issue tracker](https://github.com/GTNewHorizons/GT-New-Horizons-Modpack/issues).
+
+  - type: input
+    id: discord
+    attributes:
+      label: Your GTNH Discord Username
+      description: "Leave empty if you don't have one, but this makes it easier to contact you if clarification is needed."
+      placeholder: "Example: Fake"
+
+  - type: input
+    id: version
+    attributes:
+      label: Your Pack Version
+      description: "Enter the exact GTNH version shown on the main menu, including any beta or dev suffix. Neither \"latest\" nor \"1.7.10\" is a valid pack version."
+      placeholder: "Example: 2.9.0-beta-2"
+    validations:
+      required: true
+
+  - type: input
+    id: launcher
+    attributes:
+      label: Amethyst Launcher Version
+      description: "If relevant to your suggestion, enter the exact version of the Amethyst launcher you downloaded. Do not enter \"latest\"."
+
+  - type: input
+    id: device
+    attributes:
+      label: Device Model and Android Version
+      description: "If relevant to your suggestion, include your phone or tablet model and the Android version it is running."
+      placeholder: "Example: Google Pixel 8, Android 14"
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Your Proposal
+      description: "What change or new feature would you like? Describe one suggestion per issue. Attach screenshots or a mockup if helpful."
+      placeholder: "Example: Offer a larger touch target for a frequently used interface button."
+    validations:
+      required: true
+
+  - type: textarea
+    id: goal
+    attributes:
+      label: Your Goal
+      description: "What problem would this solve, and why is it specific to playing GTNH on mobile?"
+      placeholder: "Example: The button is difficult to tap accurately on a small phone screen."
+    validations:
+      required: true
+
+  - type: textarea
+    id: vision
+    attributes:
+      label: Your Vision
+      description: "How would this improve the mobile experience? Describe the intended behavior and any trade-offs, such as screen space, performance, or compatibility."
+      placeholder: "Example: A larger optional button would reduce accidental taps while keeping the compact layout available."
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: final
+    attributes:
+      label: Final Checklist
+      description: Please confirm the following so we can better handle this suggestion.
+      options:
+        - label: "I have read the GTNH Mobile README and this suggestion is specific to the mobile experience."
+          required: true
+        - label: "I have searched this tracker and the main GTNH issue tracker, including closed issues, and found no similar suggestion."
+          required: true
+        - label: "I understand that suggestions may be declined or may not be implemented."
+          required: true
